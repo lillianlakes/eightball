@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-import GetRandomAnswer from "./GetRandomAnswer"
+import getRandomAnswer from "./getRandomAnswer"
 
+//Sets initial eightball message and color
 function EightBall(props) {
   const [color, setColor] = useState("black");
   const [message, setMessage] = useState("Think of a Question");
 
+  // Changes color and message for the eightball
   function handleClick() {
-    const index = GetRandomAnswer(props.answers);
-    const answer = props.answers[index]
-    console.log(answer)
+    const index = getRandomAnswer(props.answers);
+    const answer = props.answers[index];
     setColor(answer.color);
     setMessage(answer.msg);
   }
 
   return (
-
-      <div onClick={handleClick} className="EightBall"  style= {{ backgroundColor: color }} >
-        <p className="EightBall-Message"><b>{message}</b></p>
+      <div onClick={handleClick} className="eightBall"  style={{ backgroundColor: color }} >
+        <p className="eightBall-message"><b>{message}</b></p>
       </div>
-
   )
 }
 

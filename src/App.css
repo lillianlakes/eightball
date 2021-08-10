@@ -37,7 +37,8 @@
   }
 }
 
-.EightBall {
+.eightBall {
+  margin-top: 25%;
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -47,7 +48,7 @@
 }
 
 
-.EightBall-Message{
+.eightBall-message{
   position: relative;
   color: white;
   text-align: center;
