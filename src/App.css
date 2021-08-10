@@ -38,8 +38,19 @@
 }
 
 .EightBall {
-  height: 25%;
-  width: 25%;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
   display: inline-block;
+  position: relative;
+ 
+}
+
+
+.EightBall-Message{
+  position: relative;
+  color: white;
+  text-align: center;
+  top: 75px;
+
 }

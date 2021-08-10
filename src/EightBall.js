@@ -1,19 +1,24 @@
 import React, { useState } from "react";
+import GetRandomAnswer from "./GetRandomAnswer"
 
 function EightBall(props) {
   const [color, setColor] = useState("black");
   const [message, setMessage] = useState("Think of a Question");
 
   function handleClick() {
-    const answer = getRandomAnswer(props.answers);
+    const index = GetRandomAnswer(props.answers);
+    const answer = props.answers[index]
+    console.log(answer)
     setColor(answer.color);
     setMessage(answer.msg);
   }
 
   return (
-    <div className="EightBall" style= {{ backgroundColor: color }} >
-      <p>{message}</p>
-    </div>
+
+      <div onClick={handleClick} className="EightBall"  style= {{ backgroundColor: color }} >
+        <p className="EightBall-Message"><b>{message}</b></p>
+      </div>
+
   )
 }
 
