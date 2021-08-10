@@ -5,18 +5,18 @@ import getRandomAnswer from "./getRandomAnswer"
 function EightBall(props) {
   const [color, setColor] = useState("black");
   const [message, setMessage] = useState("Think of a Question");
-  let greenCount = 0;
-  let goldenRodCount = 0;
-  let redCount = 0;
+  const [greenCount, setGreenCount] = useState(0);
+  const [goldenRodCount, setGoldenRodCount] = useState(0);
+  const [redCount, setRedCountCount] = useState(0);
 
   // Changes color and message for the eightball
   function handleClick() {
     const index = getRandomAnswer(props.answers);
     const answer = props.answers[index];
     setColor(answer.color);
-    if (answer.color === "green") greenCount++;
-    else if (answer.color === "goldenrod") goldenRodCount++;
-    else redCount++;
+    if (answer.color === "green") setGreenCount(greenCount + 1);
+    else if (answer.color === "goldenrod") setGoldenRodCount(goldenRodCount + 1);
+    else setRedCountCount(redCount + 1);
 
     console.log('greenCount: ', greenCount);
     console.log('redCount: ', redCount);
@@ -28,9 +28,9 @@ function EightBall(props) {
   function reset() {
     setColor("black");
     setMessage("Think of a Question")
-    greenCount = 0;
-    goldenRodCount = 0;
-    redCount = 0;
+    setGreenCount(0);
+    setGoldenRodCount(0);
+    setRedCountCount(0);
   }
 
   return (
@@ -41,7 +41,9 @@ function EightBall(props) {
         </div>
 
         <div className="EightBall-counts">
-          <p>Green: {greenCount}       GoldenRod: {goldenRodCount}       Red: {redCount}</p>
+          <p className="EightBall-green">Green: {greenCount} </p> 
+          <p className="EightBall-goldenRod">GoldenRod: {goldenRodCount} </p> 
+          <p className="EightBall-red">Red: {redCount}</p>
         </div>
       </div>
 

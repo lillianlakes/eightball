@@ -38,7 +38,7 @@
 }
 
 .EightBall-ball {
-  margin-top: 25%;
+  margin-top: 15%;
   margin-bottom: 2.5%;
   height: 200px;
   width: 200px;
@@ -48,10 +48,31 @@
  
 }
 
-
 .EightBall-message{
   position: relative;
   color: white;
   text-align: center;
   top: 75px;
+}
+
+.EightBall-counts > p {
+  border: 50px;
+  font-weight: 500;
+}
+
+.EightBall-green {
+  color: green;
+}
+
+.EightBall-red {
+  color: red;
+}
+
+.EightBall-goldenRod {
+  color: goldenrod;
+}
+
+button {
+  font-weight: 700;
+  font-size: 16px;
 }
