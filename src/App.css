@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.EightBall {
+  height: 25%;
+  width: 25%;
+  border-radius: 50%;
+  display: inline-block;
+}
