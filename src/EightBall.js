@@ -5,19 +5,51 @@ import getRandomAnswer from "./getRandomAnswer"
 function EightBall(props) {
   const [color, setColor] = useState("black");
   const [message, setMessage] = useState("Think of a Question");
+  let greenCount = 0;
+  let goldenRodCount = 0;
+  let redCount = 0;
 
   // Changes color and message for the eightball
   function handleClick() {
     const index = getRandomAnswer(props.answers);
     const answer = props.answers[index];
     setColor(answer.color);
+    if (answer.color === "green") greenCount++;
+    else if (answer.color === "goldenrod") goldenRodCount++;
+    else redCount++;
+
+    console.log('greenCount: ', greenCount);
+    console.log('redCount: ', redCount);
+    console.log('goldenRodCount: ', goldenRodCount);
+
     setMessage(answer.msg);
   }
 
+  function reset() {
+    setColor("black");
+    setMessage("Think of a Question")
+    greenCount = 0;
+    goldenRodCount = 0;
+    redCount = 0;
+  }
+
   return (
-      <div onClick={handleClick} className="eightBall"  style={{ backgroundColor: color }} >
-        <p className="eightBall-message"><b>{message}</b></p>
+    <div className="EightBall">
+      <div onClick={handleClick}>
+        <div className="EightBall-ball"  style={{ backgroundColor: color }} >
+          <p className="EightBall-message"><b>{message}</b></p>
+        </div>
+
+        <div className="EightBall-counts">
+          <p>Green: {greenCount}       GoldenRod: {goldenRodCount}       Red: {redCount}</p>
+        </div>
       </div>
+
+      <div>
+        <button onClick={reset}>Reset</button>
+      </div>
+    </div>
+
   )
 }
 
